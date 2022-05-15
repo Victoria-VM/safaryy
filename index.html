@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/resent.css">
+    <title>Document</title>
+</head>
+<body>  
+<header class="header">
+    <div class="container">
+        <div class="inner">
+            <div class="header_top">
+                <a href="#" class="logo">
+                    <img src="img/Group 42.svg" alt="logo" class="logo_img">
+                </a>
+                <div class="phone">
+                    <div class="phone_text">
+                    Замовлення турів та бронювання:
+                     </div>
+                    <a href="#" class="btn phone_number">тел. 8-050-8-543-543</a>
+                </div>
+                <nav class="header_menu">
+                    <ul class="menu_list">
+                        <div id="marker"></div>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Бронювання</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Екскурсії</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Тури </a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Про Африку</a>
+                        </li>
+                        <li class="menu_item">
+                            <a href="#" class="menu_link">Про нас</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="fixed_header_menu">
+                    <ul class="fixed_menu_list">
+                        <li class="fixed_menu_item">
+                            <a href="#" class="fixed_menu_link">Бронювання</a>
+                        </li>
+                        <li class="fixed_menu_item">
+                            <a href="#" class="fixed_menu_link">Екскурсії</a>
+                        </li>
+                        <li class="fixed_menu_item">
+                            <a href="#" class="fixed_menu_link">Тури </a>
+                        </li>
+                        <li class="fixed_menu_item">
+                            <a href="#" class="fixed_menu_link">Про Африку</a>
+                        </li>
+                        <li class="fixed_menu_item">
+                            <a href="#" class="fixed_menu_link">Про нас</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="header_content">
+                <h1>Сафарі по Африці</h1>
+            </div>
+            <div class="footer">
+                <p class="text1 text">
+                    Тури по екзотичним місцям</p>
+                   <p class="text2 text">Поїхали з нами за новими враженнями!</p>
+                <a href="#" class="btn footer_btn">Залишити заявку</a>
+                <a href="#" class="arrow_link">
+                    <div class="arrow"></div>
+                    <div class="arrow"></div>
+                    <div class="arrow"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+    <script type="text/javascript">
+        var marker = document.querySelector('#marker');
+         var item = document.querySelectorAll('nav a');
+ 
+         function indicator(e){
+             marker.style.left = e.offsetLeft+"px";
+             marker.style.width = e.offsetWidth+"px";
+         }
+         item.forEach(link => {
+             link.addEventListener('click', (e)=>{
+                 indicator(e.target);
+             })
+         })
+     </script>
+     <script>
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+
+                setTimeout(() => {
+                    ripples.remove()
+                },1000);
+            })
+        })
+    </script>
+</body>
+</html>
